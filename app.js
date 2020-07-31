@@ -1,22 +1,20 @@
-
-
-
+//variables that can be accessed by every function
 let randomVal;
-let value;       //variables that can be accessed by every function
+let value;       
 let previousVal="0"; 
 
-//Generates Pins
+ //generates four digits from 1000-9999
 const pinGenerator=()=>{
-    while(true)  //generates four digits from 1000-9999
+    while(true) 
     {
      let randomStr=(Math.floor(1000+Math.random()*10000)).toString(); 
       if(randomStr.length>=5){
           continue;    //return to the loop as digits exceeds limit
       }
       randomVal=randomStr;
-        break;   //if digits are okay break the  loop
+        break;   //if digits aren four length, break the  loop
     }
-   const pinDisplay=document.getElementById('dis-generated-pin');
+   const pinDisplay=document.getElementById('display-generated-pin');
    pinDisplay.value=randomVal;  //display generated pins
    }
 
@@ -58,74 +56,24 @@ const  pinChecker=()=>
   }
   event.stopImmediatePropagation();
 }
-  
+  //Clear All Handler Function
 const clearAll=()=>{
   UpdateDisplay("");
   event.stopImmediatePropagation();
 }
 
+//Earse the last Digit Handler
+const eraseLast=()=>{
+  if(!(value==="")){
+    value=value.substring(0, value.length - 1); //Erase the last digit 
+    UpdateDisplay(value); //update the value
+  }
+  
+  event.stopPropagation();
+}
 
 
  
 
 
 
-// document.getElementById('generateBtn').addEventListener('click',()=>{
- 
-//  while(true)
-//  {
-//    randomStr=(Math.floor(1000+Math.random()*10000)).toString(); 
-  
-//    if(randomStr.length>=5){
-//      continue;
-//   }
-//   randomStr=parseFloat(randomStr);
-//   console.log(randomStr);
-//   break;
-//  }
-
-//  const pinDisplay=document.getElementById('pinOutput');
-//  pinDisplay.disabled=true;
-//  pinDisplay.value=randomStr;
-// //  console.log(randomStr);
-
-// })
-
-
-// const matchPins=()=>{
-//   document.getElementById('submitBtn').addEventListener("click",()=>
-//   {
-//       if(randomStr==value){
-//       document.getElementById('match').style.display='block';
-//       }
-//       else{
-//       document.getElementById('not-match').style.display='block';
-//       }
-//     })
-//   }
-
-
-// const UpdateDisplay=(pressedvalue)=>{
-//   if(previousVal==="0"){
-//     value=pressedvalue;
-//   }
-//   else{
-//     value=previousVal+pressedvalue;
-//   }
-  
-//    document.getElementById('submitDisplay').value=value;
-//    previousVal=value;
-//    matchPins();
-
-//    }
-
-
-
-// let button=document.getElementsByClassName('button')
-// for(let i=0;i<button.length;i++){
-//   let items=button[i];
-//   items.addEventListener("click",(event)=>{
-//      let currentVal=event.target.innerText; /*getting current      buttonvalue */
-//     UpdateDisplay(currentVal);
-//      });
-//   }

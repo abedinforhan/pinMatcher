@@ -12,7 +12,7 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="pin-generator half-width">
-                    <input id="dis-generated-pin" class="form-control bg-dark" type="text" disabled>
+                    <input id="display-generated-pin" class="form-control bg-dark" type="text" disabled>
                     <button onclick="pinGenerator()" class="generate-btn">Generate Pin</button>
                 </div>
             </div>
@@ -37,7 +37,7 @@
                               <div class="button">3</div>
                             </div>
                             <div class="calc-button-row">
-                                <div class="button"><</div>
+                                <div onclick="eraseLast()" class="button"><</div>
                                 <div class="button">0</div>
                                 <div onclick="clearAll()"class="button">C</div>
                             </div>
